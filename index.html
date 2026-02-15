@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Payroll App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Indian Payroll Calculator</h1>
+      <p class="subtitle">Estimate monthly salary breakup, tax, and employer cost.</p>
+
+      <section class="card">
+        <h2>Employee Inputs</h2>
+        <form id="payroll-form">
+          <div class="grid">
+            <label>
+              Employee Name
+              <input type="text" id="name" placeholder="e.g. Asha Sharma" required />
+            </label>
+
+            <label>
+              Annual CTC (₹)
+              <input type="number" id="annualCtc" min="100000" step="1000" value="1200000" required />
+            </label>
+
+            <label>
+              Bonus % of CTC
+              <input type="number" id="bonusPct" min="0" max="50" step="0.5" value="10" />
+            </label>
+
+            <label>
+              Tax Regime
+              <select id="regime">
+                <option value="new">New Regime (FY 2024-25)</option>
+                <option value="old">Old Regime</option>
+              </select>
+            </label>
+
+            <label>
+              80C Deductions (₹, old regime)
+              <input type="number" id="deduction80c" min="0" max="150000" step="1000" value="150000" />
+            </label>
+
+            <label>
+              Other Deductions (₹)
+              <input type="number" id="otherDeductions" min="0" step="1000" value="50000" />
+            </label>
+          </div>
+
+          <button type="submit">Calculate Payroll</button>
+        </form>
+      </section>
+
+      <section class="card" id="results" hidden>
+        <h2>Payroll Summary</h2>
+        <p id="employeeHeading"></p>
+        <div class="grid results-grid">
+          <div><strong>Basic Pay (Monthly):</strong> <span id="basicMonthly"></span></div>
+          <div><strong>HRA (Monthly):</strong> <span id="hraMonthly"></span></div>
+          <div><strong>Special Allowance (Monthly):</strong> <span id="specialMonthly"></span></div>
+          <div><strong>Employee PF (Monthly):</strong> <span id="employeePf"></span></div>
+          <div><strong>Professional Tax (Monthly):</strong> <span id="professionalTax"></span></div>
+          <div><strong>TDS (Monthly):</strong> <span id="tdsMonthly"></span></div>
+          <div><strong>Net In-hand (Monthly):</strong> <span id="netMonthly"></span></div>
+          <div><strong>Employer Cost (Monthly):</strong> <span id="employerMonthly"></span></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
